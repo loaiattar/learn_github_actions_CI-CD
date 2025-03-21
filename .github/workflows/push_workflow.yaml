@@ -1,0 +1,26 @@
+name: Push or Pull Workflow
+
+on:
+  push:
+    env:
+      do: true
+  pull_request:
+    env:
+      do: true
+
+jobs:
+  say_push:
+    runs-on: ubuntu-latest
+    if: ${{ env.do == 'true' }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Say PUSH
+        run: echo "PUSH"
+
+  say_pull:
+    runs-on: ubuntu-latest
+    if: ${{ env.do == 'true' }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Say PULL
+        run: echo "PULL"
