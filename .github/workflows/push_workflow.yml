@@ -11,16 +11,16 @@ on:
 jobs:
   say_push:
     runs-on: ubuntu-latest
-    if: ${{ env.do == 'true' }}
     steps:
       - uses: actions/checkout@v4
       - name: Say PUSH
+        if: ${{ env.do == 'true' }}
         run: echo "PUSH"
 
   say_pull:
     runs-on: ubuntu-latest
-    if: ${{ env.do == 'true' }}
     steps:
       - uses: actions/checkout@v4
       - name: Say PULL
+        if: ${{ env.do == 'true' }}
         run: echo "PULL"
